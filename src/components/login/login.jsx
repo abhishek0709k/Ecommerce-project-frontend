@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Login.css"; // We'll create this CSS file
 import axios from "axios";
 import { useNavigate } from "react-router";
-import Navbar from "../navbar/navbar";
+import Navbar from "../navbar/navbar.jsx";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");

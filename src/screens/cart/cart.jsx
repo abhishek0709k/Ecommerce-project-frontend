@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./cart.css";
 import axios from "axios";
-import Navbar from "../../components/navbar/navbar";
+import Navbar from "../../components/navbar/navbar.js";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);

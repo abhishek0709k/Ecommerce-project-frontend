@@ -1,9 +1,9 @@
 import './App.css'
 import { Route, Routes } from "react-router-dom"
-import Home from './screens/home/home'
-import Login from './components/login/login'
-import Register from './components/register/register'
-import Cart from './screens/cart/cart'
+import Home from './screens/home/home.jsx'
+import Login from './components/login/login.jsx'
+import Register from './components/register/register.jsx'
+import Cart from './screens/cart/cart.jsx'
 function App() {
   
 
