@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./login.css"; // We'll create this CSS file
 import axios from "axios";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import Navbar from "../navbar/navbar.jsx";
 function Login() {
   const [username, setUsername] = useState("");
@@ -60,7 +60,7 @@ function Login() {
         </button>
 
         <div className="footer-text">
-          Don't have an account? <a href="/register">Register</a>
+          Don't have an account? <Link to="/register">Register</Link>
         </div>
       </form>
     </div>
