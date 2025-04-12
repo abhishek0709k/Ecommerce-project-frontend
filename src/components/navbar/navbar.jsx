@@ -6,24 +6,27 @@ import { Link } from "react-router";
 const Navbar = ({ setSearchQuery }) => {
   const [cartCount, setCartCount] = useState(0);
   const [token, setToken] = useState(localStorage.getItem("Token"));
-  const [query, setQuery] = useState("")
+  const [query, setQuery] = useState("");
   useEffect(() => {
     try {
-        async function getCount() {
-            const response = await axios.get("http://localhost:8000/cart/cart-count", {
-                headers: {Authorization: `Bearer ${token}`},
-              })
-              setCartCount(response.data.data.count)
+      async function getCount() {
+        const response = await axios.get(
+          "https://ecommerce-project-backend-0xn5.onrender.com/cart/cart-count",
+          {
+            headers: { Authorization: `Bearer ${token}` },
           }
-          getCount();
+        );
+        setCartCount(response.data.data.count);
+      }
+      getCount();
     } catch (error) {
-        console.log(error)
+      console.log(error);
     }
   }, [token]);
-  const handleOnclick = (e)=>{
+  const handleOnclick = (e) => {
     setSearchQuery(query);
-    setQuery("")
-  }
+    setQuery("");
+  };
   const handleLogout = () => {
     localStorage.removeItem("Token");
     setToken(null);
@@ -38,10 +41,13 @@ const Navbar = ({ setSearchQuery }) => {
       {/* Center */}
       <div className="navbar-center">
         <div className="search-bar">
-          <input type="text" placeholder="Search..." value={query} 
+          <input
+            type="text"
+            placeholder="Search..."
+            value={query}
             onChange={(e) => {
               setQuery(e.target.value);
-            }} 
+            }}
           />
           <button onClick={handleOnclick}>Search</button>
         </div>

@@ -10,11 +10,14 @@ const Cart = () => {
   async function getCartItems() {
     const token = localStorage.getItem("Token");
     try {
-      const response = await axios.get("http://localhost:8000/cart/get-cart", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.get(
+        "https://ecommerce-project-backend-0xn5.onrender.com/cart/get-cart",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       if (response.data && response.data.data) {
         setCartItems(response.data.data);
@@ -36,15 +39,18 @@ const Cart = () => {
     const token = localStorage.getItem("Token");
     try {
       await axios.post(
-        "http://localhost:8000/cart/remove-cart",
+        "https://ecommerce-project-backend-0xn5.onrender.com/cart/remove-cart",
         { title: item.title },
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      const response = await axios.get("http://localhost:8000/cart/get-cart", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.get(
+        "https://ecommerce-project-backend-0xn5.onrender.com/cart/get-cart",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       if (response.data && response.data.data) {
         setCartItems(response.data.data);

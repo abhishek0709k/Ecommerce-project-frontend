@@ -10,28 +10,38 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-        await axios.post("http://localhost:8000/auth/login", { username, password })
+      await axios
+        .post(
+          "https://ecommerce-project-backend-0xn5.onrender.com/auth/login",
+          { username, password }
+        )
         .then((response) => {
-          const token = response.data.data.token
-          localStorage.setItem("Token", token)
+          const token = response.data.data.token;
+          localStorage.setItem("Token", token);
           navigate("/");
         });
     } catch (error) {
-        setUsername("")
-        setPassword("")
-        navigate("/login")
+      setUsername("");
+      setPassword("");
+      navigate("/login");
     }
   };
 
   return (
     <div className="login-container">
-        <Navbar/>
+      <Navbar />
       <form className="login-form" onSubmit={handleSubmit}>
         <h2>Login</h2>
 
         <div className="input-group">
           <label htmlFor="username">Username</label>
-          <input type="text" id="username" placeholder="Enter your username" value={username} onChange={(e)=> setUsername(e.target.value)}/>
+          <input
+            type="text"
+            id="username"
+            placeholder="Enter your username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
         </div>
 
         <div className="input-group">
@@ -40,8 +50,8 @@ function Login() {
             type="password"
             id="password"
             placeholder="Enter your password"
-            value={password} 
-            onChange={(e)=> setPassword(e.target.value)}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
 

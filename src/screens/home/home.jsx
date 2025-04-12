@@ -7,12 +7,12 @@ import { useNavigate } from "react-router";
 const Home = () => {
   const [cardData, setCardData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  
+
   const navigate = useNavigate();
   useEffect(() => {
-    if(searchQuery !== "" && searchQuery.length > 0){
-      handleSearch()
-    }else {
+    if (searchQuery !== "" && searchQuery.length > 0) {
+      handleSearch();
+    } else {
       async function data() {
         const response = await fetch("https://fakestoreapi.com/products");
         const productData = await response.json();
@@ -26,7 +26,7 @@ const Home = () => {
     const token = localStorage.getItem("Token");
     await axios
       .post(
-        "http://localhost:8000/cart/add-cart",
+        "https://ecommerce-project-backend-0xn5.onrender.com/cart/add-cart",
         {
           image: card.image,
           title: card.title,
@@ -47,14 +47,16 @@ const Home = () => {
       });
   };
 
-  const handleSearch = ()=>{
-    const data = cardData.filter((item)=> item.title.toLowerCase().includes(searchQuery.toLowerCase()));
-    setCardData(data)
-  }
-  
+  const handleSearch = () => {
+    const data = cardData.filter((item) =>
+      item.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setCardData(data);
+  };
+
   return (
     <div className="home-container">
-      <Navbar setSearchQuery={setSearchQuery}/>
+      <Navbar setSearchQuery={setSearchQuery} />
       <h1 className="home-title">Welcome to Home Page</h1>
 
       <div className="card-grid">
