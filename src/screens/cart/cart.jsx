@@ -55,6 +55,7 @@ const Cart = () => {
       if (response.data && response.data.data) {
         setCartItems(response.data.data);
       } else {
+        window.location.reload()
         console.log("Error: No data found");
       }
     } catch (error) {

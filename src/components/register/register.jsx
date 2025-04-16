@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./register.css";
 import Navbar from "../navbar/navbar.jsx";
 import axios from "axios";
-import { useNavigate } from "react-router";
+import { useNavigate, Link } from "react-router";
 
 const Register = () => {
   const [fullname, setFullname] = useState("");
@@ -90,7 +90,7 @@ const Register = () => {
         </button>
 
         <div className="footer-text">
-          Already have an account? <a href="/login">Login</a>
+          Already have an account? <Link href="/login">Login</Link>
         </div>
       </form>
     </div>
